@@ -39,6 +39,7 @@
     var t=null;
     var stop=false;
     var nombreTotalMouvement=0;
+    var time="0:0:0";
     
 
     
@@ -156,6 +157,7 @@
                                     nombreDisque++;
                                     document.getElementById("nombreDisque").value=nombreDisque;
                                     drawDisks(nombreDisque);
+                                    
                                 }
                             else document.hanoi.diskno.options.selectedIndex=prevIndex;
 
@@ -164,6 +166,7 @@
                     else
                         {
                             alert("Bravo, vous avez gagné le jeu!!! :)");
+                            nombreDisque++;
 
                             
                         }
@@ -233,7 +236,11 @@
 
     function dropDisk(disk){
         var f=document.hanoi;
-        
+        if (nombreTotalMouvement==0)
+            {
+                chrono();
+                var instance = self.setInterval(chrono ,1000);
+            }
         document.onmousemove=new Function("return false");
         if (!drag) return;
         var gameStatus=false;
@@ -409,3 +416,95 @@
         msg+="You must never allow a bigger disk to go on top of a smaller disk.";
         alert(msg);
     }
+
+    function chrono()
+        {
+
+                var timeSplited = time.split(':');
+                var hour = timeSplited[0];
+                var minute = timeSplited[1];
+                var second = timeSplited[2];
+                second++;
+                if(second==60) {
+                    second = '0';
+                    minute++;
+                    if(minute == 60){
+                        minute = '0';
+                        hour++;
+                    }
+                }
+                hour = '0'+hour;
+                hour = hour.toString().substr(-2, 2);
+                minute = '0'+minute;
+                minute = minute.toString().substr(-2, 2);
+                second = '0'+second;
+                second = second.toString().substr(-2, 2);
+                time = hour+':'+minute+':'+second;
+                document.getElementById('time').innerHTML = time;
+                if (nombreDisque>8)
+                    {
+                        var pseudo;
+                        pseudo=prompt("Vous avez réolu le jeu en "+time+". Quel est votre nom?");
+                        sauvgarderResultat(pseudo, time);
+
+                    }
+            
+            
+        }
+    
+
+function getXMLHttpRequest()
+  {
+      var xhr = null;
+
+      if (window.XMLHttpRequest || window.ActiveXObject)
+        {
+         if (window.ActiveXObject)
+         {
+         try
+                {
+                 xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+         catch(e)
+                {
+                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+         }
+         else
+         {
+         xhr = new XMLHttpRequest();
+         }
+        }
+      else
+        {
+         alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+         return null;
+        }
+
+      return xhr;
+  }
+function sauvgarderResultat(pseudo, score)
+  {
+            var pseudo;
+            //instanciation de l'objet de requete ajax
+            var xhr = getXMLHttpRequest();
+            
+
+
+            
+           
+
+            //fonction de ce qui se passe lorsque le xhr recoit la réponse
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+                {
+                //alert(xhr.responseText);
+
+                }
+              
+             };
+
+            xhr.open("POST", "sauvgarderResultats.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("pseudo="+pseudo+"&score="+score);
+  }

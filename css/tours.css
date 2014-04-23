@@ -46,20 +46,70 @@ a
 	{
 		position:absolute;
 		visibility:visible;
-		border:1px solid black;
-		background-color:black;
+		border:3px solid burlywood;
+		background-color:burlywood;
 	}
 .towerhoriz 
 	{
 		position:absolute;
 		visibility:visible;
-		border:1px solid black;
+		border:3px solid burlywood;
 		font-size:1px;
-		background-color:black;
+		background-color:burlywood;
 	}
 .disk 
 	{
 		position:absolute;
 		visibility:visible;
 		border:1px solid black;
+		border-radius: 10px;
+	}
+#disk1
+	{
+		background-image: url(Bois279.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk2
+	{
+		background-image: url(Bois140.jpg);
+
+  		background-repeat:repeat;
+	}
+
+#disk3
+	{
+		background-image: url(Bois280.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk4
+	{
+		background-image: url(Bois242.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk5
+	{
+		background-image: url(Bois083.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk6
+	{
+		background-image: url(Bois279.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk7
+	{
+		background-image: url(Bois140.jpg);
+
+  		background-repeat:repeat;
+	}
+#disk8
+	{
+		background-image: url(Bois280.jpg);
+
+  		background-repeat:repeat;
 	}
