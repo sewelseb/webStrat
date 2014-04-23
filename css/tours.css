@@ -146,3 +146,29 @@ a
 
   		background-repeat:repeat;
 	}
+
+@media screen and (max-width: 1260px)
+{
+   .texteRewardParchemin
+		{
+			position: absolute;
+			
+			padding-top: 50px;
+			
+			
+			text-align: center;
+		}
+	.texteReward
+		{
+			position: absolute;
+			right: 60px;
+			top: 10px;
+			padding-top: 50px;
+			
+			font-family: Georgia;
+			font-style: italic;
+			font-size: 15px;
+			
+			text-align: center;
+		}
+}
