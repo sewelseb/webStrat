@@ -40,8 +40,9 @@
     var stop=false;
     var nombreTotalMouvement=0;
     var time="0:0:0";
-    
-
+    var imageReward= new Array("css/img1.jpg","css/img2.jpg","css/img3.jpg","css/img4.jpg","css/img5.jpg","css/img6.jpg","css/img7.jpg","css/img8.jpg");
+    var imageEnCour=0;
+    var texteReward= new Array("La legende veut que lorsque les moines d'Hanoi auront fini de bouger la tour de 64 anneaux d'or, le monde disparaitra dans un coup de foudre.","Afin de bouger les 64 anneaux, ils faudrait un total de 18,446,744,073,709,551,615 déplacement.","Cela équivaux à peut pres à 584,5 milliards d'années, soit 43 fois le temps qui nous sépare du big bang.","Le probleme mathématique des tours a été inventé par le francais Édouard Lucas en 1892.","Le graphe des Tours de Hanoi à N disques est identique au Triangle de Pascal d'ordre 2N, dont l'on a relie une par une arête les coefficients binomiaux impairs","Bravo, vous avez réussi à résoudre ce probleme. Heureusement, il n'y avait pas 64 disques, et le monde n'a pas encore disparu.");
     
     function init()
         {
@@ -153,11 +154,13 @@
                         {
                             if (confirm("Next level, do you want to continue?"))
                                 {
+                                    imageEnCour++;
+                                    document.getElementById('texteReward').innerHTML=texteReward[imageEnCour];
                                     initVars();
                                     nombreDisque++;
                                     document.getElementById("nombreDisque").value=nombreDisque;
                                     drawDisks(nombreDisque);
-                                    
+
                                 }
                             else document.hanoi.diskno.options.selectedIndex=prevIndex;
 
@@ -239,6 +242,8 @@
         if (nombreTotalMouvement==0)
             {
                 chrono();
+                document.getElementById('texteReward').innerHTML=texteReward[imageEnCour];
+                document.getElementById('texteRewardParchemin').style.visibility = 'visible';
                 var instance = self.setInterval(chrono ,1000);
             }
         document.onmousemove=new Function("return false");

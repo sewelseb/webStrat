@@ -118,6 +118,13 @@
         </p>
       </div>
     </form>
+    <div class="imgReward" id="imgReward">
+    </div>
+    <div class="texteRewardParchemin" id="texteRewardParchemin" style="width: 580px; height: 200px; background-image: url(http://img515.imageshack.us/img515/426/parcheminforumgw2rp.gif);overflow:auto; visibility:hidden;">
+      <p class="texteReward" id="texteReward" style="width: 480px; height: 200px; ">
+
+      </p>
+    </div>
    </div>
     <script src="JS/tours.js"></script>
   </body>
