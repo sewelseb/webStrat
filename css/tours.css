@@ -1,0 +1,65 @@
+body
+	{
+		margin: 0 auto;
+		
+	}
+table 
+	{
+		font:bold 13px Verdana;
+	}
+p 
+	{
+		font:normal 11px Tahoma,Verdana;
+	}
+input,select 
+	{
+		font:normal 12px Tahoma,Verdana;
+	}
+select 
+	{
+		width:40px;
+	}
+a 
+	{
+		font-weight:bold;
+	}
+.jeu
+	{
+		margin: 0 auto;
+		
+	}
+.tower 
+	{
+		position:absolute;
+		visibility:visible;
+		left:77px;
+		top:184px;
+		font:bold 10px Tahoma;
+	}
+
+.container 
+	{
+		position:absolute;
+		visibility:visible;
+	}
+.towervert 
+	{
+		position:absolute;
+		visibility:visible;
+		border:1px solid black;
+		background-color:black;
+	}
+.towerhoriz 
+	{
+		position:absolute;
+		visibility:visible;
+		border:1px solid black;
+		font-size:1px;
+		background-color:black;
+	}
+.disk 
+	{
+		position:absolute;
+		visibility:visible;
+		border:1px solid black;
+	}
